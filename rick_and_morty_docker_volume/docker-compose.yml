@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    container_name: rick_and_morty_app
+    stdin_open: true
+    tty: true
+    volumes:
+      - db_sqlite3:/data
+
+volumes:
+  db_sqlite3:

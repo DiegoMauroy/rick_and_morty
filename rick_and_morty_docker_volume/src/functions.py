@@ -63,10 +63,4 @@ def data_api_to_sqlite3(url_base, query_url, db_name, table_name):
 
     df.to_sql(name = table_name, con = conn, if_exists='replace')
 
-    c.execute('''SELECT * FROM all_characters''')
-
-    for row in c.fetchall():
-        
-        print (row)
-
     conn.close()
