@@ -1,0 +1,5 @@
+To use this application : 
+    1. clone the repository
+    2. cd PATH/rick_and_morty/rick_and_morty_docker_volume
+    3. mkdir data
+    4. docker-compose up
