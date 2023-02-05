@@ -1,5 +1,9 @@
+This application stores api data in a database every minute.
+
 To use this application : 
     1. clone the repository
     2. cd PATH/rick_and_morty/rick_and_morty_docker_volume
     3. mkdir data
-    4. docker-compose up
+    4. docker-compose up -d
+
+    Warning: I have created a volume in the docker-compose and linked it to the different services. A folder is indeed created on the local disk (named dbdata), but I don't understand how to copy the data from the docker to the local disk.

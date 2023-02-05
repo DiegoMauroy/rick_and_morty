@@ -1,3 +1,5 @@
+This application allows to store the data of the api in a database.
+
 To use this application : 
     1. clone the repository
     2. cd PATH/rick_and_morty/rick_and_morty
