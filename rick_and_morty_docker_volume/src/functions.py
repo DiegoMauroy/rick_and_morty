@@ -47,20 +47,22 @@ def resample(fct, *args):
 
         schedule.run_pending()
 
-#### Transfer the data from the api to a sqlite db ####
+#### Transfer the data from the api (url_base, query_url) to a sqlite db (db_name, table_nam) ####
 def data_api_to_sqlite3(url_base, query_url, db_name, table_name):
 
+    # call the api and put the data in the dictionary
     data = make_request(url_base, query_url)
 
+    # transfer dictionary into dataframe
     df = pd.DataFrame(data["results"])
 
+    # data organization
     df = dictonnary_to_multi_columns(df, "origin", True)
     df = dictonnary_to_multi_columns(df, "location", True)    
     df = list_to_string(df, "episode")
 
+    # transfer data into sqlite db
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
-
     df.to_sql(name = table_name, con = conn, if_exists='replace')
-
     conn.close()

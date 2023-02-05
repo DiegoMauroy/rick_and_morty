@@ -3,10 +3,30 @@ services:
   app:
     build: .
     container_name: rick_and_morty_app
+    depends_on:
+      - sqlite3
+    volumes:
+      - dbdata:/data/
+    networks:
+      - backend
+
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    container_name: rick_and_morty_sqlite3
     stdin_open: true
     tty: true
     volumes:
-      - db_sqlite3:/data
+      - dbdata:/data/
+    networks:
+      - backend
+
+networks:
+  backend:
 
 volumes:
-  db_sqlite3:
+  dbdata:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/dbdata/'

@@ -4,7 +4,7 @@ FROM python:3.11.1
 WORKDIR /rick_and_morty
 
 # copy the dependencies file to the working directory
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 
 # install dependencies
 RUN pip3 install --upgrade pip
